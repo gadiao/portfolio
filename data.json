@@ -1,0 +1,173 @@
+{
+    "name": "Kaustubh Odak",
+    "landing": {
+        "title": "Hi, I'm Kaustubh",
+        "subtitles": [
+            "Full-stack developer 🌐",
+            "Cross-platform developer 📱💻",
+            "Exploring cloud ☁️",
+            "Beginner in devops ♾️",
+            "Just getting started 📈"
+        ],
+        "professionalDetails": [
+            {
+                "alt": "kaustubh-odak",
+                "icon": "linkedin",
+                "link": "https://www.linkedin.com/in/kaustubh-odak/"
+            },
+            {
+                "alt": "kausko",
+                "icon": "stackoverflow",
+                "link": "https://stackoverflow.com/users/15832433/kausko"
+            },
+            {
+                "alt": "kausko",
+                "icon": "github",
+                "link": "https://github.com/kausko"
+            },
+            {
+                "alt": "Email",
+                "icon": "gmail",
+                "link": "mailto:iam@kaustubhodak.me,kaustubhodak1@gmail.com"
+            }
+        ]
+    },
+    "skills": {
+        "Languages known": [
+            "TypeScript",
+            "JavaScript",
+            "Java",
+            "C++",
+            "Python",
+            "HTML5",
+            "CSS3",
+            "Kotlin",
+            "Dart"
+        ],
+        "Frontend": [
+            "React",
+            "Redux",
+            "Next.js",
+            "Gatsby",
+            "Netlify",
+            "Vercel",
+            "Material-UI",
+            "antdesign",
+            "Bootstrap"
+        ],
+        "Backend, Database and Cloud": [
+            "Node.js",
+            "Express",
+            "FastAPI",
+            "MongoDB",
+            "MySQL",
+            "PostgreSQL",
+            {
+                "alt": "Azure",
+                "icon": "microsoftazure"
+            },
+            "Heroku",
+            "Firebase"
+        ],
+        "Mobile": [
+            {
+                "alt": "React_Native",
+                "icon": "react",
+                "backgroundColor": "#424242"
+            },
+            "Expo",
+            "Android",
+            "Flutter"
+        ]
+    },
+    "projects": {
+        "baseURI": "https://api.github.com/repos/kausko/",
+        "repositories": [
+            "Portfolio",
+            "Genrealize",
+            "Discord-Google-Drive-Bot",
+            "GitHits",
+            "Mail-em",
+            "JAutoLayout"
+        ]
+    },
+    "experience": {
+        "Work Experience": [
+            {
+                "organization": "CloudDFN LLP",
+                "role": "Full Stack Developer",
+                "type": "Internship",
+                "startDate": "2020-07-20",
+                "endDate": "2021-01-20",
+                "city": "Mumbai",
+                "state": "Maharashtra",
+                "country": "India",
+                "url": "https://www.linkedin.com/company/clouddfn-llp/",
+                "thumbnail": "/CDFN.jfif"
+            },
+            {
+                "organization": "NonceBlox Pvt. Ltd.",
+                "role": "Full Stack Developer",
+                "type": "Internship",
+                "startDate": "2021-07-01",
+                "endDate": "2021-10-01",
+                "city": "New Delhi",
+                "state": "Delhi",
+                "country": "India",
+                "url": "https://www.linkedin.com/company/clouddfn-llp/",
+                "thumbnail": "https://www.nonceblox.com/ton3.png"
+            }
+        ],
+        "Volunteer Experience": [
+            {
+                "organization": "PICT IEEE Student Branch (PISB)",
+                "role": "Technical Head",
+                "type": "Member",
+                "startDate": "2019-07-01",
+                "endDate": "",
+                "city": "Pune",
+                "state": "Maharashtra",
+                "country": "India",
+                "url": "https://www.linkedin.com/company/pisbieee/",
+                "thumbnail": "/PISB.jfif"
+            },
+            {
+                "organization": "Pictoreal",
+                "role": "Technical Head",
+                "type": "Member",
+                "startDate": "2019-07-01",
+                "endDate": "2021-04-01",
+                "city": "Pune",
+                "state": "Maharashtra",
+                "country": "India",
+                "url": "https://www.linkedin.com/company/pictoreal/",
+                "thumbnail": "/Picto.jfif"
+            }
+        ]
+    },
+    "about": {
+        "description": "I am a full-stack cross-platform app developer, pursuing my M.S. in Computer Science from Georgia Tech. I strive to make meaningful applications with the best UI practices. ",
+        "picture": "/profile.JPG",
+        "social": []
+    },
+    "theme": {
+        "light": {
+            "palette": {
+                "type": "light",
+                "background": {
+                    "paper": "#fff",
+                    "default": "#fafafa"
+                }
+            }
+        },
+        "dark": {
+            "palette": {
+                "type": "dark",
+                "background": {
+                    "paper": "#303030",
+                    "default": "#212121"
+                }
+            }
+        }
+    }
+}
