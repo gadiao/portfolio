@@ -1,85 +1,46 @@
 import React, { useCallback } from 'react';
-import { AppBar, Container, IconButton, makeStyles, Toolbar, Typography, useScrollTrigger, useTheme } from '@material-ui/core';
+import { Box, AppBar, Container, IconButton, Toolbar, Typography, useScrollTrigger } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Landing from '../src/Landing';
-import Skills from '../src/Skills';
 import Projects from '../src/Projects';
+import Skills from '../src/Skills';
 import Experience from '../src/Experience';
 import About from '../src/About';
 import data from '../data.json';
 import { darkTheme, lightTheme } from '../src/theme';
-import { Brightness4, Brightness7 } from '@material-ui/icons';
-const { name, projects } = data
+import { Brightness4, Brightness7 } from '@mui/icons-material';
+const { name } = data
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  appBar: {
-    boxShadow: "none",
-  }
-}))
-
-export async function getStaticProps() {
-  const baseURI = projects.baseURI
-  const repos = projects.repositories
-  const reqInit = {
-    headers: { 
-      'Authorization': `token ${process.env.PAT}`
-    }
-  }
-  const fullRepoData = await Promise.allSettled(
-    repos.map(
-      async name => {
-        const repo = await fetch(baseURI + name, reqInit).then(res => res.json());
-        const langs = await fetch(baseURI + name + "/languages", reqInit).then(res => res.json())
-        return {
-          ...repo,
-          languages: Object.getOwnPropertyNames(langs)
-        };
-      }
-    )
-  );
-
-  return {
-    props: {
-      projects: fullRepoData
-    },
-    revalidate: 60
-  }
-}
-
+// Removed projects and theme
 export default function Index({ projects, setTheme }) {
 
-  const classes = useStyles()
-
-  const trigger = useScrollTrigger({ disableHysteresis: true })
-
-  const theme = useTheme()
-
+  const trigger = useScrollTrigger({ disableHysteresis: true });
+  const theme = useTheme();
+  
+  // Might have to rework state starting from _app.js then here***************
   const toggleTheme = useCallback(() => {
-    setTheme(theme => theme.palette.type === 'dark' ? lightTheme : darkTheme)
+    setTheme(theme => theme.palette.mode === 'dark' ? lightTheme : darkTheme)
   }, [setTheme])
 
   return (
-    <div className={classes.root}>
-      <AppBar color={!trigger ? "transparent" : "inherit"} className={classes.appBar} position="fixed">
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar color={!trigger ? "transparent" : "inherit"} sx={{ boxShadow: "none" }} position= "fixed">
         <Toolbar>
-          <Typography variant="h6" className={classes.root}>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
             { name }
           </Typography>
           <IconButton edge="end" color="inherit" onClick={toggleTheme}>
-            {theme.palette.type === "dark" ? <Brightness7/> : <Brightness4/>}
+            {theme.palette.mode === "dark" ? <Brightness7/> : <Brightness4/>}
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Toolbar className={classes.toolbar} />
       <Container>
         <Landing />
+        <Projects />
         <Skills />
-        <Projects data={projects}/>
-        <Experience/>
-        <About/>
+        <Experience />
+        <About />
       </Container>
-    </div>
+    </Box>
   );
 }

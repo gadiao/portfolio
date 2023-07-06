@@ -1,109 +1,137 @@
-import { Card, CardActionArea, CardActions, CardContent, CardHeader, Chip, Fade, Grid, Hidden, makeStyles, Typography } from "@material-ui/core";
-import { RepoForkedIcon, RepoIcon, StarIcon } from '@primer/octicons-react';
+import * as React from 'react';
+import { Box, Button, Card, CardActionArea, CardActions, CardContent, Chip, Fade, Grid, Modal, Typography, useMediaQuery } from "@mui/material";
+import { makeStyles } from 'tss-react/mui';
+import { useTheme } from "@mui/material/styles";
 import Image from 'next/image'
+import data from '../data.json'
 import { useRef } from "react";
 import useAnimate from "./useAnimate";
+const { projects } = data
 
-const useStyles = makeStyles(theme => ({
-    cont: {
-        minHeight: `calc(100vh - ${theme.spacing(4)}px)`,
-    },
-    card: {
-        height: '100%'
-    },
-    cardActionArea: {
-        height: '100%',
-        // display: 'grid'
+const useStyles = makeStyles()((theme) => {
+    return {
+        cont: {
+            minHeight: `100vh`,
+        },
+        card: {
+            height: '100%'
+        },
+        cardHeader: {
+            paddingTop: 0
+        },
+        cardActionArea: {
+            height: '100%',
+        },
+        expObj: {
+            marginBottom: theme.spacing(1)
+        }
     }
-}))
+});
 
-export default function Projects({ data }) {
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
-    const classes = useStyles()
+export default function Projects() {
 
-    const animRef = useRef(null)
+    const { classes } = useStyles();
+    const theme = useTheme();
+    const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
+    const align = mdDown ? "center" : "flex-end";
+    const textAlign = mdDown ? "center" : "right";
+
+    const animRef = useRef(null);
     const animate = useAnimate(animRef)
+    
+    // Modal useState
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     return (
-        <Grid direction="row-reverse" container justify="center" alignItems="center" spacing={10} className={classes.cont}>
-            <Grid item xs={12} lg={6}>
-                <Typography variant="h2" gutterBottom align="center" innerRef={animRef}>
+        <Grid direction="row-reverse" container justifyContent="center" alignItems="center" spacing={1} className={classes.cont}>
+            <Grid container item xs={12} lg={4} direction="column" alignItems="center">
+                <Typography variant="h2" align="center" ref={animRef}>
                     Projects
                 </Typography>
-                <Hidden mdDown>
-                    <Fade in={animate} style={{ transitionDelay: '250ms' }}>
-                        <div>
-                            <Image
-                                alt="Projects"
-                                src="/projects.svg"
-                                width="1144"
-                                height="617.32"
-                            />
-                        </div>
-                    </Fade>
-                </Hidden>
+                <Fade in={animate} style={{ transitionDelay: '250ms' }}>
+                    <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+                        <Image
+                            alt="Projects"
+                            src="/projects.svg"
+                            width="400"
+                            height="300"
+                        />
+                    </Box>
+                </Fade>
             </Grid>
-            <Grid container item xs={12} lg={6} direction="row" spacing={1}>
+
+            <Grid container item xs={12} lg={8} direction="column" alignItems={align}>
                 {
-                    !!data && data.map((v, i) =>
-                        <Grid item sm={6} xs={12} key={i}>
-                            <Fade in={animate} style={{ transitionDelay: `${200 * i}ms` }}>
-                                <Card key={i} className={classes.card}>
-                                    <CardActionArea
-                                        className={classes.cardActionArea}
-                                        href={v.value.html_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <CardHeader
-                                            title={<><RepoIcon verticalAlign='middle' /> {v.value.name}</>}
-                                            subheader={
-                                                <>
-                                                    {
-                                                        !!v.value.stargazers_count &&
-                                                        <>
-                                                            <StarIcon verticalAlign='middle' />
-                                                            {v.value.stargazers_count}
-                                                        </>
-                                                    }
-                                                    {
-                                                        !!v.value.forks &&
-                                                        <>
-                                                            <RepoForkedIcon verticalAlign='middle' />
-                                                            {v.value.forks}
-                                                        </>
-                                                    }
-                                                </>
-                                            }
-                                        />
-                                        <CardContent>
-                                            <Typography variant="body2" color="textSecondary" component="p">
-                                                {v.value.description}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions>
-                                            <Grid container direction="row" spacing={1}>
-                                                {
-                                                    !!v.value.languages &&
-                                                    v.value.languages.map((lang, i) =>
-                                                        <Grid item key={i}>
-                                                            <Chip
-                                                                key={i}
-                                                                label={lang}
-                                                                size="small"
-                                                            />
-                                                        </Grid>
-                                                    )
-                                                }
-                                            </Grid>
-                                        </CardActions>
-                                    </CardActionArea>
-                                </Card>
-                            </Fade>
+                    Object.getOwnPropertyNames(projects).map((title, id) =>
+                        <Grid item key={id} className={classes.expObj}>
+                            {console.log(id)}
+                            <Typography variant="h6" alignItems={textAlign} gutterBottom component="p">
+                                {title}
+                            </Typography>
+                            <Grid container item direction="row" spacing={1} justifyContent="center">
+                                {
+                                    projects[title].map(({
+                                        pname,
+                                        info,
+                                        languages
+                                    }, i) =>
+                                        <Grid item xs={12} sm key={i}>
+                                            {console.log(i)}
+                                            <Fade in={animate} style={{ transitionDelay: `${200 * i}ms` }}>
+                                                <Card className={classes.card}>
+                                                    <CardActionArea
+                                                        className={classes.cardActionArea}
+                                                        onClick={handleOpen}
+                                                    >
+                                                        <CardContent>
+                                                            <Typography sx={{ mb: 1.5 }}>
+                                                                {pname}
+                                                            </Typography>
+                                                            <Typography variant="body2" color="text.secondary">
+                                                                {info}
+                                                            </Typography>
+                                                        </CardContent>
+                                                        <CardActions>
+                                                            <Grid container direction="row" spacing={0.5}>
+                                                                {
+                                                                    languages.map((lang, i) =>
+                                                                        <Grid item key={i}>
+                                                                            <Chip
+                                                                                key={i}
+                                                                                label={lang}
+                                                                                size="small"
+                                                                            />
+                                                                        </Grid>
+                                                                    )
+                                                                }
+                                                            </Grid>
+                                                        </CardActions>
+                                                    </CardActionArea>
+                                                </Card>
+                                            </Fade>
+                                        </Grid>
+                                    )
+                                }
+                            </Grid>
                         </Grid>
                     )
                 }
             </Grid>
+            <div ref={animRef}></div>
         </Grid>
     )
 }

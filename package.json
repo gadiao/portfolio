@@ -1,20 +1,20 @@
 {
   "name": "nextjs",
-  "version": "4.0.0",
+  "version": "13.4.7",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "latest",
-    "@material-ui/icons": "^4.11.2",
-    "@primer/octicons-react": "^12.0.0",
-    "clsx": "latest",
+    "@emotion/react": "^11.11.1",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "latest",
+    "@mui/material": "^5.13.6",
     "next": "latest",
-    "next-pwa": "^5.0.5",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-typed": "^1.2.0",
+    "react-typed": "latest",
     "simple-icons": "^4.11.0",
-    "webpack": "^4.46.0"
+    "tss-react": "^4.8.6"
   },
   "scripts": {
     "dev": "next",

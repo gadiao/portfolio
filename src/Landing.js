@@ -1,11 +1,12 @@
-import { Avatar, Fade, Grid, Hidden, makeStyles, Tooltip, Typography, useMediaQuery, useTheme, Zoom } from "@material-ui/core";
+import { Avatar, Fade, Grid, Tooltip, Typography, useMediaQuery, Zoom } from "@mui/material";
+import { useTheme } from "@mui/material/styles"
+import { makeStyles } from 'tss-react/mui';
 import ReactTyped from "react-typed";
-import clsx from "clsx";
 import Image from 'next/image'
-import simpleIcons from 'simple-icons'
+import simpleIcons from 'simple-icons' 
 import data from '../data.json'
 import { iconify } from "./util";
-import Cancel from "@material-ui/icons/Cancel";
+import Cancel from "@mui/icons-material/Cancel";
 const { landing } = data
 
 const professionalDetails = landing.professionalDetails.map(({ alt, icon, link }) => {
@@ -29,37 +30,37 @@ professionalDetails.forEach(({ alt, backgroundColor }) => {
     iobj[alt] = { backgroundColor }
 })
 
-const useStyles = makeStyles(theme => ({
-    cont: {
-        minHeight: `calc(100vh - ${theme.spacing(4)}px)`,
-        paddingBottom: theme.spacing(10)
-    },
-    subtitle: {
-        marginTop: theme.spacing(3),
-        marginBottom: theme.spacing(5)
-    },
-    avatar: {
-        height: theme.spacing(8),
-        width: theme.spacing(8),
-        padding: theme.spacing(2)
-    },
-    ...iobj
-}))
+const useStyles = makeStyles()((theme) => {
+    return {
+        cont: {
+            minHeight: `100vh`,
+            paddingBottom: theme.spacing(2)
+        },
+        subtitle: {
+            marginTop: theme.spacing(3),
+            marginBottom: theme.spacing(5)
+        },
+        avatar: {
+            height: theme.spacing(8),
+            width: theme.spacing(8),
+            padding: theme.spacing(2)
+        },
+        ...iobj
+    }
+});
 
 export default function Landing() {
-
-    const classes = useStyles();
+    const { classes, cx } = useStyles();
     const theme = useTheme();
-    const mdDown = useMediaQuery(theme.breakpoints.down('sm'));
+    const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
 
     return (
-        <Grid container justify="center" alignItems="center" className={classes.cont}>
+        <Grid container justifyContent="center" alignItems="center" className={classes.cont}>
             <Grid item xs={12} lg={6}>
                 <Typography variant={mdDown ? "h2" : "h1"}>
                     {landing.title}
                 </Typography>
                 <Typography variant={mdDown ? "h5" : "h4"} component="h2" className={classes.subtitle}>
-
                     <ReactTyped
                         strings={landing.subtitles}
                         typeSpeed={40}
@@ -74,7 +75,7 @@ export default function Landing() {
                                 <a href={link} target="_blank" rel="noopener noreferrer">
                                     <Zoom in={true} style={{ transitionDelay: `${100 * i}ms` }}>
                                         <Tooltip title={alt} placement="top">
-                                            <Avatar variant="rounded" className={clsx([classes.avatar, classes[alt]])}>
+                                            <Avatar variant="rounded" className={cx(classes.avatar, classes[alt])}>
                                                 {icon}
                                             </Avatar>
                                         </Tooltip>
@@ -85,19 +86,16 @@ export default function Landing() {
                     }
                 </Grid>
             </Grid>
-
-            <Hidden mdDown>
-                <Fade in={true} style={{ transitionDelay: '100ms' }}>
-                    <Grid item lg={6}>
-                        <Image
-                            src="/landing.svg"
-                            alt="Landing"
-                            width="900.94"
-                            height="787"
-                        />
-                    </Grid>
-                </Fade>
-            </Hidden>
+            <Fade in={true} style={{ transitionDelay: '100ms' }}>
+                <Grid item lg={6} sx={{ display: { xs: 'none', lg: 'block' } }}>
+                    <Image
+                        src="/landing.svg"
+                        alt="Landing"
+                        width="600"
+                        height="787"
+                    />
+                </Grid>
+            </Fade>
         </Grid>
     )
 }

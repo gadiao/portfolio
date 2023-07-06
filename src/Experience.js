@@ -1,28 +1,32 @@
-import { Avatar, Card, CardActionArea, CardHeader, Fade, Grid, Hidden, makeStyles, Typography, useMediaQuery, useTheme } from "@material-ui/core";
+import { Avatar, Box, Card, CardActionArea, CardHeader, Fade, Grid, Typography, useMediaQuery } from "@mui/material";
+import { makeStyles } from 'tss-react/mui';
+import { useTheme } from "@mui/material/styles";
 import Image from 'next/image'
-import { DateRange, LocationCity } from '@material-ui/icons';
+import { DateRange, LocationCity } from '@mui/icons-material';
 import data from '../data.json'
 import { useRef } from "react";
 import useAnimate from "./useAnimate";
 const { experience } = data
 
-const useStyles = makeStyles(theme => ({
-    cont: {
-        minHeight: `calc(100vh - ${theme.spacing(4)}px)`,
-    },
-    card: {
-        height: '100%',
-    },
-    cardHeader: {
-        paddingTop: 0
-    },
-    cardActionArea: {
-        height: '100%',
-    },
-    expObj: {
-        marginBottom: theme.spacing(4)
+const useStyles = makeStyles()((theme) => {
+    return {
+        cont: {
+            minHeight: `60vh`
+        },
+        card: {
+            height: '100%',
+        },
+        cardHeader: {
+            paddingTop: 0
+        },
+        cardActionArea: {
+            height: '100%',
+        },
+        expObj: {
+            marginBottom: theme.spacing(1)
+        }
     }
-}))
+});
 
 const getHumanDiff = (startDate, endDate) => {
     let str = ""
@@ -56,47 +60,41 @@ const getHumanDiff = (startDate, endDate) => {
 
 export default function Experience() {
 
-    const classes = useStyles()
+    const { classes } = useStyles()
     const theme = useTheme()
-    const mdDown = useMediaQuery(theme.breakpoints.down('md'))
+    const mdDown = useMediaQuery(theme.breakpoints.down('lg'))
     const align = mdDown ? "center" : "flex-end"
-    const textAlign = mdDown ? "center" : "right"
+    const textAlign = mdDown ? "center" : "left"
 
     const animRef = useRef(null)
     const animate = useAnimate(animRef)
 
     return (
-        <Grid direction="row" container justify="center" alignItems="center" spacing={10} className={classes.cont}>
-            <Grid item xs={12} lg={6}>
-                <Typography variant="h2" gutterBottom align="center">
-                    Experience
-                </Typography>
-                <Hidden mdDown>
-                    <Fade in={animate} style={{ transitionDelay: '250ms' }}>
-                        <div>
+        <Grid direction="row-reverse" container justifyContent="center" alignItems="center" spacing={1} className={classes.cont}>
+            <Grid item xs={12} lg={4}>
+                <Fade in={animate} style={{ transitionDelay: '250ms' }}>
+                    <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
                             <Image
                                 alt="Experience"
                                 src="/experience.svg"
-                                width="996.46"
-                                height="828.18"
+                                width="400"
+                                height="600"
                             />
-                        </div>
-                    </Fade>
-                </Hidden>
+                    </Box>
+                </Fade>
             </Grid>
-            <Grid container item xs={12} lg={6} direction="column" spacing={1} alignItems={align}>
+            <Grid container item xs={12} lg={8} direction="column" spacing={1} alignItems={align}>
                 {
                     Object.getOwnPropertyNames(experience).map((title, id) =>
                         <Grid item key={id} className={classes.expObj}>
                             <Typography variant="h4" align={textAlign} gutterBottom component="p">
                                 {title}
                             </Typography>
-                            <Grid container item direction="row" spacing={1} justify="center">
+                            <Grid container item direction="row" spacing={1} justifyContent="center">
                                 {
                                     experience[title].map(({
                                         organization,
                                         role,
-                                        type,
                                         startDate,
                                         endDate,
                                         city,
@@ -120,12 +118,12 @@ export default function Experience() {
                                                                     <Image
                                                                         alt={`${organization} logo`}
                                                                         src={thumbnail}
-                                                                        layout="fill"
+                                                                        fill
                                                                     />
                                                                 </Avatar>
                                                             }
                                                             title={organization}
-                                                            subheader={role + " - " + type}
+                                                            subheader={role}
                                                         />
                                                         <CardHeader
                                                             avatar={<DateRange />}
