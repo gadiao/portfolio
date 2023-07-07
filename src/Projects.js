@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, Chip, Fade, Grid, Modal, Typography, useMediaQuery } from "@mui/material";
+import { Backdrop, Box, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, Chip, Fade, Grid, Modal, Typography, useMediaQuery } from "@mui/material";
 import { makeStyles } from 'tss-react/mui';
 import { useTheme } from "@mui/material/styles";
 import Image from 'next/image'
@@ -28,18 +28,6 @@ const useStyles = makeStyles()((theme) => {
     }
 });
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-  };
-
 export default function Projects() {
 
     const { classes } = useStyles();
@@ -50,9 +38,6 @@ export default function Projects() {
 
     const animRef = useRef(null);
     const animate = useAnimate(animRef)
-    
-    // Modal useState
-
 
     return (
         <Grid direction="row-reverse" container justifyContent="center" alignItems="center" spacing={1} className={classes.cont}>
@@ -71,6 +56,7 @@ export default function Projects() {
                     </Box>
                 </Fade>
             </Grid>
+            <TransitionsModal />
             <Grid container item xs={12} lg={8} direction="column" alignItems={align}>
                 {
                     Object.getOwnPropertyNames(projects).map((title, id) =>
@@ -129,4 +115,50 @@ export default function Projects() {
             <div ref={animRef}></div>
         </Grid>
     )
+}
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+};
+
+const TransitionsModal = () => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    return (
+      <>
+        <Modal
+          aria-labelledby="transition-modal-title"
+          aria-describedby="transition-modal-description"
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          slots={{ backdrop: Backdrop }}
+          slotProps={{
+            backdrop: {
+              timeout: 500,
+            },
+          }}
+        >
+          <Fade in={open}>
+            <Box sx={style}>
+              <Typography id="transition-modal-title" variant="h6" component="h2">
+                Text in a modal
+              </Typography>
+              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+              </Typography>
+            </Box>
+          </Fade>
+        </Modal>
+      </>
+    );
 }

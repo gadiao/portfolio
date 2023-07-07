@@ -26,19 +26,20 @@
             {
                 "pname": "Site Suitability of Ontario Wind Farm",
                 "info": "Multicriteria Analysis of potential small wind farm in the Municipal of Kincardine",
-                "url": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "The purpose of this analysis is to identify two potential wind farms to be built in Western Ontario at the Municipal of Kincardine due to an abundance of suitable space. Wind speed is also suitable as it is greater than or equal to 6 m/s. The suitability of the land is reflected through the already present Wind Farms placed by private, and public companies as well as government-owned Wind Farms. The lands around the proposed Wind Farms are used for agriculture or open green spaces.",
+                "pics": ["/projects/gis1a.png", "/projects/gis1b.png", "/projects/gis1a.png"],
                 "languages": ["ArcGIS Map"]
             },
             {
                 "pname": "Fire Response Coverage Analysis of Waterloo",
                 "info": "Analysis of Network Datasets for identifying and lessening the response time for Fire Calls",
-                "url": "https://www.linkedin.com/company/pictoreal/",
+                "summary": "https://www.linkedin.com/company/pictoreal/",
                 "languages": ["ArcGIS Map"]
             },
             {
                 "pname": "Impact Analysis of Proposed Highways in Ontario",
                 "info": "Analysis of the impact of proposed North and South Highways between Stratford and New Hamburg",
-                "url": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "https://www.linkedin.com/company/pisbieee/",
                 "languages": ["QGIS", "PostresSQL / PostGIS"]
             }
         ],
@@ -46,19 +47,19 @@
             {
                 "pname": "Airborne LiDAR Data Processing of EV3 Building of UWaterloo",
                 "info": "Virtual model created using a ground-based scan on PCI Geomatica ",
-                "url": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "https://www.linkedin.com/company/pisbieee/",
                 "languages": ["PCI Geomatica"]
             },
             {
                 "pname": "Man-made and Natural Feature Image Classifications",
                 "info": "Comparison of Pixel-Based & Object-Based Image Classifications",
-                "url": "https://www.linkedin.com/company/pictoreal/",
+                "summary": "https://www.linkedin.com/company/pictoreal/",
                 "languages": ["PCI Geomatica"]
             },
             {
                 "pname": "Amazon Rainforest Deforestation through RADAR Data Processing",
                 "info": "Deforestation highlighted using processed satellite data from Sentinel-2 series",
-                "url": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "https://www.linkedin.com/company/pisbieee/",
                 "languages": ["PCI Geomatica"]
             }
         ],
@@ -66,7 +67,7 @@
             {
                 "pname": "Predicting Canadian Crop Yield using Neural Networks",
                 "info": "Capstone project on comparing machine learning algorithms over statistical models",
-                "url": "https://www.linkedin.com/company/pictoreal/",
+                "summary": "https://www.linkedin.com/company/pictoreal/",
                 "languages": ["Jupyter Notebook", "ArcGIS Map", "Python"]
             },
             {
@@ -78,7 +79,7 @@
             {
                 "pname": "PCA of Lake ice cover break-up in Canada",
                 "info": "Principal Component Analysis of lessening lake ice cover across a 30-year period of 1966-1995 in Canada",
-                "url": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "https://www.linkedin.com/company/pisbieee/",
                 "languages": ["R"]
             }
         ]
