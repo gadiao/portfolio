@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Button, Card, CardActionArea, CardActions, CardContent, Chip, Fade, Grid, Modal, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, Chip, Fade, Grid, Modal, Typography, useMediaQuery } from "@mui/material";
 import { makeStyles } from 'tss-react/mui';
 import { useTheme } from "@mui/material/styles";
 import Image from 'next/image'
@@ -52,9 +52,7 @@ export default function Projects() {
     const animate = useAnimate(animRef)
     
     // Modal useState
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+
 
     return (
         <Grid direction="row-reverse" container justifyContent="center" alignItems="center" spacing={1} className={classes.cont}>
@@ -73,12 +71,10 @@ export default function Projects() {
                     </Box>
                 </Fade>
             </Grid>
-
             <Grid container item xs={12} lg={8} direction="column" alignItems={align}>
                 {
                     Object.getOwnPropertyNames(projects).map((title, id) =>
                         <Grid item key={id} className={classes.expObj}>
-                            {console.log(id)}
                             <Typography variant="h6" alignItems={textAlign} gutterBottom component="p">
                                 {title}
                             </Typography>
@@ -90,7 +86,6 @@ export default function Projects() {
                                         languages
                                     }, i) =>
                                         <Grid item xs={12} sm key={i}>
-                                            {console.log(i)}
                                             <Fade in={animate} style={{ transitionDelay: `${200 * i}ms` }}>
                                                 <Card className={classes.card}>
                                                     <CardActionArea
