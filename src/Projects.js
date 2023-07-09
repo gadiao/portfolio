@@ -29,7 +29,6 @@ const useStyles = makeStyles()((theme) => {
 });
 
 export default function Projects() {
-
     const { classes } = useStyles();
     const theme = useTheme();
     const mdDown = useMediaQuery(theme.breakpoints.down('lg'));
@@ -76,7 +75,6 @@ export default function Projects() {
                                                 <Card className={classes.card}>
                                                     <CardActionArea
                                                         className={classes.cardActionArea}
-                                                        onClick={handleOpen}
                                                     >
                                                         <CardContent>
                                                             <Typography sx={{ mb: 1.5 }}>
@@ -135,6 +133,7 @@ const TransitionsModal = () => {
 
     return (
       <>
+        <Button onClick={handleOpen}>Open modal</Button>
         <Modal
           aria-labelledby="transition-modal-title"
           aria-describedby="transition-modal-description"

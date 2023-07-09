@@ -27,19 +27,21 @@
                 "pname": "Site Suitability of Ontario Wind Farm",
                 "info": "Multicriteria Analysis of potential small wind farm in the Municipal of Kincardine",
                 "summary": "The purpose of this analysis is to identify two potential wind farms to be built in Western Ontario at the Municipal of Kincardine due to an abundance of suitable space. Wind speed is also suitable as it is greater than or equal to 6 m/s. The suitability of the land is reflected through the already present Wind Farms placed by private, and public companies as well as government-owned Wind Farms. The lands around the proposed Wind Farms are used for agriculture or open green spaces.",
-                "pics": ["/projects/gis1a.png", "/projects/gis1b.png", "/projects/gis1a.png"],
+                "pics": ["/projects/gis1a.png", "/projects/gis1b.png"],
                 "languages": ["ArcGIS Map"]
             },
             {
                 "pname": "Fire Response Coverage Analysis of Waterloo",
                 "info": "Analysis of Network Datasets for identifying and lessening the response time for Fire Calls",
-                "summary": "https://www.linkedin.com/company/pictoreal/",
+                "summary": "The purpose of this research is to identify and lessen the response time for Fire Calls that are greater than 10 minutes in the Region of Waterloo . To do this, a Network Dataset was first made using the Roads in the Waterloo Region region shapefile as the base for Analysis. The shapefiles for Fire Stations, Fire Calls and Population data are later inputed to the Network Analysis toolkit to produce three types of analysis: Routes, Service Area, and Location-Allocation.",
+                "pics": ["/projects/gis2a.png", "/projects/gis2b.png"],
                 "languages": ["ArcGIS Map"]
             },
             {
                 "pname": "Impact Analysis of Proposed Highways in Ontario",
                 "info": "Analysis of the impact of proposed North and South Highways between Stratford and New Hamburg",
-                "summary": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "The purpose of this analysis is to identify whether the proposed North or South Highway between Stratford and New Hamburg is suitable through a highway expansion study and environmental assessment. The North Highway is longer and intersects more woodlands. The South Highway does not impact  nearby residential areas as well as having an obstructed highway route of less than 30% therefore is the more suitable route.",
+                "pics": ["/projects/gis3a.png", "/projects/gis3b.png", "/projects/gis3c.png"],
                 "languages": ["QGIS", "PostresSQL / PostGIS"]
             }
         ],
@@ -47,19 +49,22 @@
             {
                 "pname": "Airborne LiDAR Data Processing of EV3 Building of UWaterloo",
                 "info": "Virtual model created using a ground-based scan on PCI Geomatica ",
-                "summary": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "Airborne LiDAR Data Processing portrayed to show the granular scale of detail in accuracy, resolution, and modelling of real-world objects. The 3D model is stitched together using Aerial and ground-based LiDAR data. The main drawback of a full 3D coverage of a study area that includes buildings is the inability for ground LiDAR devices to capture the vertical surfaces of buildings. The device cannot penetrate further than the area the device is designed to image. The Aerial LiDAR data was able to capture accurate vertical measurements but not granular enough to image the building from above.",
+                "pics": ["/projects/rs1a.png", "/projects/rs1b.png"],
                 "languages": ["PCI Geomatica"]
             },
             {
                 "pname": "Man-made and Natural Feature Image Classifications",
                 "info": "Comparison of Pixel-Based & Object-Based Image Classifications",
-                "summary": "https://www.linkedin.com/company/pictoreal/",
+                "summary": "A comparison of ISOCLUS unsupervised pixel-based classification, MDM (Minimum Distance to Mean) pixel-based classification, and OBIA (Object-based Image Analysis) classification. ISOCLUS classification is observed to work on a massive scale to identify features but versatility in classification comes from user specified aggregation. MDM classification accuracy comes from the accuracy of the given training data. However, the most aesthetic can be seen at OBIA but can overgeneralize features.",
+                "pics": ["/projects/rs2.png"],
                 "languages": ["PCI Geomatica"]
             },
             {
                 "pname": "Amazon Rainforest Deforestation through RADAR Data Processing",
                 "info": "Deforestation highlighted using processed satellite data from Sentinel-2 series",
-                "summary": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "The process of filtering is used to greatly enhance the extent of damage deforestation has done to the Amazon Rainforest. This is first done by taking SAR satellite data and then using VV (Vertical Vertical Polarization) and VH (Vertical Horizontal Polarization) images from the subset of 2017 and 2018 images. For the RGB images on the bottom, Red represents the division of the year 2017 and 2018 for the relevant band, Green represents the year 2017 for the band, and Blue represents the year 2018 for the band. By doing this, the green and blue pixels together fill in the non-relevant features that do not cover forest cover change while the red pixels will show which areas that have little to no forest cover as its values are flipped as seen on the table above where bright areas for the divided bands are flipped making it the ideal band to show tree cover. The polarization for VV is the most useful for identifying forest cover as it covers a higher count of red pixels where areas of no forests are seen.",
+                "pics": ["/projects/rs3a.png", "/projects/rs3b.png"],
                 "languages": ["PCI Geomatica"]
             }
         ],
@@ -67,19 +72,22 @@
             {
                 "pname": "Predicting Canadian Crop Yield using Neural Networks",
                 "info": "Capstone project on comparing machine learning algorithms over statistical models",
-                "summary": "https://www.linkedin.com/company/pictoreal/",
+                "summary": "Do deep neural networks such as Long Short-Term Memory (LSTM) and Convolutional Neural Networks (CNN) return more precise results and operate more efficiently in comparison to a traditional statistical model for crop yield forecasting? LSTM (Long Short Term Memory) is a part of neural network that is adept with time-series data.  A Convolution model makes predictions based on a fixed-width history and is able to see how things are changing over time by using convolutions and filters to output a specified value. Mean Absolute Percentage Error is a statistic used to measure the quality of a model’s predictions and measures the average difference between the actual and the predicted values. Both the LSTM and CNN has performed quite well compared to the CCYF, though more studies will be required because of the obstacles encountered in implementations. Some evidence of overfitting has been found in all the models, especially the canola crop yield prediction. The machine learning models have potential to replace the traditional model in crop yield prediction.",
+                "pics": ["/projects/da1a.png", "/projects/da1b.png", "/projects/da1a.png", "/projects/da1b.png"],
                 "languages": ["Jupyter Notebook", "ArcGIS Map", "Python"]
             },
             {
                 "pname": "Hot Spot Analysis of Home Depots in Ontario",
                 "info": "Multivariate analysis of home depots in Ontario mapped on ArcGIS Map",
-                "url": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "The Hot Spot Analysis done completely differs from a standard hotspot analysis featuring circular blobs of colors as Figure 2 and 3 looks more like a choropleth map with a gradient using z-score and p-value. In terms of aesthetics, it differs from a traditional hotspot analysis because it the hotspot calculations were grouped together using a fishnet from a given shapefile and in this case it is the OSD files for the province of Ontario. To have better look, OLS and GWR calculations were used. Multivariate OLS and GWR have different representations in showing explanatory variables to help predict where future stores will be located. With both a high R-squared obtained from the OLS and GWR, we can prove that Home Depot stores are strategically placed in high populated with well-endowed individuals who can afford the tools and equipment in the store. More than likely, more stores will be built alongside the development of the suburbs of expanding cities like Toronto and Ottawa.",
+                "pics": ["/projects/da2a.png", "/projects/da2b.png", "/projects/da2c.png", "/projects/da2d.png", "/projects/da2e.png", "/projects/da2f.png", "/projects/da2g.png", "/projects/da2h.png"],
                 "languages": ["R", "ArcGIS Map"]
             },
             {
                 "pname": "PCA of Lake ice cover break-up in Canada",
                 "info": "Principal Component Analysis of lessening lake ice cover across a 30-year period of 1966-1995 in Canada",
-                "summary": "https://www.linkedin.com/company/pisbieee/",
+                "summary": "Using only six principal components, the projected data not only kept up with the shape of the original data, but came relatively close to predicting the accurate amount of ice break up with relatively good examples between the 8-10 year period and the especially the years 15 to 20. Looking at Figure 2, PC1 and latitude is seen to have a slight positive correlation with significant uniformity in the distribution of points. PC2 has a very slight negative correlation with longitude as seen from its significant uniformity while PC3 has a slight positive correlation with somewhat significant uniformity with longitude.",
+                "pics": ["/projects/da3a.png", "/projects/da3b.png", "/projects/da3c.png"],
                 "languages": ["R"]
             }
         ]
