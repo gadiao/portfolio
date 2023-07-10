@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Backdrop, Box, Button, Card, CardActionArea, CardActions, CardContent, CardHeader, Chip, Fade, Grid, Modal, Typography, useMediaQuery } from "@mui/material";
+import { useState } from 'react';
+import { Box, Card, CardActionArea, CardActions, CardContent, Chip, Dialog, DialogContent, DialogTitle, Fade, Grid, Modal, Typography, useMediaQuery } from "@mui/material";
 import { makeStyles } from 'tss-react/mui';
 import { useTheme } from "@mui/material/styles";
 import Image from 'next/image'
@@ -38,6 +38,12 @@ export default function Projects() {
     const animRef = useRef(null);
     const animate = useAnimate(animRef)
 
+    const [open, setOpen] = useState(false);
+    const [stateSummary, setSummary] = useState('');
+    const [statePics, setPics] = useState([]);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     return (
         <Grid direction="row-reverse" container justifyContent="center" alignItems="center" spacing={1} className={classes.cont}>
             <Grid container item xs={12} lg={4} direction="column" alignItems="center">
@@ -54,8 +60,35 @@ export default function Projects() {
                         />
                     </Box>
                 </Fade>
+                <Dialog
+                    open={open}
+                    onClose={handleClose}
+                    fullWidth={true}
+                    minWidth={'lg'}
+                    closeAfterTransition
+                    scroll={'paper'}
+                >   
+                    <DialogContent>
+                        <Typography variant="h6" component="h2">
+                            Summary
+                        </Typography>
+                        <Typography sx={{ mt: 2 }}>
+                            {stateSummary}
+                        </Typography>
+                        {
+                            statePics.map((pic, i) =>
+                                <Fade in={animate} style={{ transitionDelay: `${200 * i}ms` }}>
+                                    <Image 
+                                        src={pic}
+                                        width='300'
+                                        height='400'
+                                    />
+                                </Fade>
+                            )
+                        }
+                    </DialogContent>
+                </Dialog>
             </Grid>
-            <TransitionsModal />
             <Grid container item xs={12} lg={8} direction="column" alignItems={align}>
                 {
                     Object.getOwnPropertyNames(projects).map((title, id) =>
@@ -68,6 +101,8 @@ export default function Projects() {
                                     projects[title].map(({
                                         pname,
                                         info,
+                                        summary,
+                                        pics,
                                         languages
                                     }, i) =>
                                         <Grid item xs={12} sm key={i}>
@@ -75,6 +110,11 @@ export default function Projects() {
                                                 <Card className={classes.card}>
                                                     <CardActionArea
                                                         className={classes.cardActionArea}
+                                                        onClick={() => {
+                                                            setSummary(summary);
+                                                            setPics(pics);
+                                                            handleOpen();
+                                                        }}
                                                     >
                                                         <CardContent>
                                                             <Typography sx={{ mb: 1.5 }}>
@@ -115,49 +155,38 @@ export default function Projects() {
     )
 }
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    boxShadow: 24,
-    p: 4,
-};
+// const TransitionsModal = () => {
+//     const [open, setOpen] = React.useState(false);
+//     const handleOpen = () => setOpen(true);
+//     const handleClose = () => setOpen(false);
 
-const TransitionsModal = () => {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
-    return (
-      <>
-        <Button onClick={handleOpen}>Open modal</Button>
-        <Modal
-          aria-labelledby="transition-modal-title"
-          aria-describedby="transition-modal-description"
-          open={open}
-          onClose={handleClose}
-          closeAfterTransition
-          slots={{ backdrop: Backdrop }}
-          slotProps={{
-            backdrop: {
-              timeout: 500,
-            },
-          }}
-        >
-          <Fade in={open}>
-            <Box sx={style}>
-              <Typography id="transition-modal-title" variant="h6" component="h2">
-                Text in a modal
-              </Typography>
-              <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-              </Typography>
-            </Box>
-          </Fade>
-        </Modal>
-      </>
-    );
-}
+//     return (
+//       <>
+//         <Button onClick={handleOpen}>Open modal</Button>
+//         <Modal
+//           aria-labelledby="transition-modal-title"
+//           aria-describedby="transition-modal-description"
+//           open={open}
+//           onClose={handleClose}
+//           closeAfterTransition
+//           slots={{ backdrop: Backdrop }}
+//           slotProps={{
+//             backdrop: {
+//               timeout: 500,
+//             },
+//           }}
+//         >
+//           <Fade in={open}>
+//             <Box sx={style}>n
+//               <Typography id="transition-modal-title" variant="h6" component="h2">
+//                 Text in a modal
+//               </Typography>
+//               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+//                 Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+//               </Typography>
+//             </Box>
+//           </Fade>
+//         </Modal>
+//       </>
+//     );
+// }
