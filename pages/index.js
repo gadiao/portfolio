@@ -9,10 +9,9 @@ import About from '../src/About';
 import data from '../data.json';
 import { darkTheme, lightTheme } from '../src/theme';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
-const { name } = data
+const { name } = data;
 
-// Removed projects and theme
-export default function Index({ projects, setTheme }) {
+export default function Index({ setTheme }) {
 
   const trigger = useScrollTrigger({ disableHysteresis: true });
   const theme = useTheme();
