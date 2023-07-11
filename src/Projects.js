@@ -39,6 +39,7 @@ export default function Projects() {
     const animate = useAnimate(animRef)
 
     const [open, setOpen] = useState(false);
+    const [stateTitle, setTitle] = useState('');
     const [stateSummary, setSummary] = useState('');
     const [statePics, setPics] = useState([]);
     const handleOpen = () => setOpen(true);
@@ -70,7 +71,7 @@ export default function Projects() {
                 >   
                     <DialogContent>
                         <Typography variant="h6" component="h2">
-                            Summary
+                            {stateTitle}
                         </Typography>
                         <Typography sx={{ mt: 2 }}>
                             {stateSummary}
@@ -112,6 +113,7 @@ export default function Projects() {
                                                     <CardActionArea
                                                         className={classes.cardActionArea}
                                                         onClick={() => {
+                                                            setTitle(pname);
                                                             setSummary(summary);
                                                             setPics(pics);
                                                             handleOpen();
