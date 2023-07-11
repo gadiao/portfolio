@@ -13,14 +13,7 @@ const clientSideEmotionCache = createEmotionCache();
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const [theme, setTheme] = useState(
-    prefersDarkMode ? darkTheme : lightTheme
-  );
-
-  useEffect(() => {
-    setTheme(prefersDarkMode ? darkTheme : lightTheme)
-  }, [prefersDarkMode]);
+  const [theme, setTheme] = useState(darkTheme);
 
   return (
     <CacheProvider value={emotionCache}>
