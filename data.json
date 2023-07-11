@@ -27,21 +27,21 @@
                 "pname": "Site Suitability of Ontario Wind Farm",
                 "info": "Multicriteria Analysis of potential small wind farm in the Municipal of Kincardine",
                 "summary": "The purpose of this analysis is to identify two potential wind farms to be built in Western Ontario at the Municipal of Kincardine due to an abundance of suitable space. Wind speed is also suitable as it is greater than or equal to 6 m/s. The suitability of the land is reflected through the already present Wind Farms placed by private, and public companies as well as government-owned Wind Farms. The lands around the proposed Wind Farms are used for agriculture or open green spaces.",
-                "pics": ["/projects/gis1a.png", "/projects/gis1b.png"],
+                "pics": ["/projects/gis1a.svg", "/projects/gis1b.svg"],
                 "languages": ["ArcGIS Map"]
             },
             {
                 "pname": "Fire Response Coverage Analysis of Waterloo",
                 "info": "Analysis of Network Datasets for identifying and lessening the response time for Fire Calls",
                 "summary": "The purpose of this research is to identify and lessen the response time for Fire Calls that are greater than 10 minutes in the Region of Waterloo . To do this, a Network Dataset was first made using the Roads in the Waterloo Region region shapefile as the base for Analysis. The shapefiles for Fire Stations, Fire Calls and Population data are later inputed to the Network Analysis toolkit to produce three types of analysis: Routes, Service Area, and Location-Allocation.",
-                "pics": ["/projects/gis2a.png", "/projects/gis2b.png"],
+                "pics": ["/projects/gis2a.svg", "/projects/gis2b.svg"],
                 "languages": ["ArcGIS Map"]
             },
             {
                 "pname": "Impact Analysis of Proposed Highways in Ontario",
                 "info": "Analysis of the impact of proposed North and South Highways between Stratford and New Hamburg",
                 "summary": "The purpose of this analysis is to identify whether the proposed North or South Highway between Stratford and New Hamburg is suitable through a highway expansion study and environmental assessment. The North Highway is longer and intersects more woodlands. The South Highway does not impact  nearby residential areas as well as having an obstructed highway route of less than 30% therefore is the more suitable route.",
-                "pics": ["/projects/gis3a.png", "/projects/gis3b.png", "/projects/gis3c.png"],
+                "pics": ["/projects/gis3a.svg", "/projects/gis3b.svg", "/projects/gis3c.svg"],
                 "languages": ["QGIS", "PostresSQL / PostGIS"]
             }
         ],
@@ -50,7 +50,7 @@
                 "pname": "Airborne LiDAR Data Processing of EV3 Building of UWaterloo",
                 "info": "Virtual model created using a ground-based scan on PCI Geomatica ",
                 "summary": "Airborne LiDAR Data Processing portrayed to show the granular scale of detail in accuracy, resolution, and modelling of real-world objects. The 3D model is stitched together using Aerial and ground-based LiDAR data. The main drawback of a full 3D coverage of a study area that includes buildings is the inability for ground LiDAR devices to capture the vertical surfaces of buildings. The device cannot penetrate further than the area the device is designed to image. The Aerial LiDAR data was able to capture accurate vertical measurements but not granular enough to image the building from above.",
-                "pics": ["/projects/rs1a.png", "/projects/rs1b.png"],
+                "pics": ["/projects/rs1a.svg", "/projects/rs1b.svg"],
                 "languages": ["PCI Geomatica"]
             },
             {
@@ -79,8 +79,8 @@
             {
                 "pname": "Hot Spot Analysis of Home Depots in Ontario",
                 "info": "Multivariate analysis of home depots in Ontario mapped on ArcGIS Map",
-                "summary": "The Hot Spot Analysis done completely differs from a standard hotspot analysis featuring circular blobs of colors as Figure 2 and 3 looks more like a choropleth map with a gradient using z-score and p-value. In terms of aesthetics, it differs from a traditional hotspot analysis because it the hotspot calculations were grouped together using a fishnet from a given shapefile and in this case it is the OSD files for the province of Ontario. To have better look, OLS and GWR calculations were used. Multivariate OLS and GWR have different representations in showing explanatory variables to help predict where future stores will be located. With both a high R-squared obtained from the OLS and GWR, we can prove that Home Depot stores are strategically placed in high populated with well-endowed individuals who can afford the tools and equipment in the store. More than likely, more stores will be built alongside the development of the suburbs of expanding cities like Toronto and Ottawa.",
-                "pics": ["/projects/da2a.png", "/projects/da2b.png", "/projects/da2c.png", "/projects/da2d.png", "/projects/da2e.png", "/projects/da2f.png", "/projects/da2g.png", "/projects/da2h.png"],
+                "summary": "The Hot Spot Analysis done completely differs from a standard hotspot analysis featuring circular blobs of colors as Figure 1 and 2 looks more like a choropleth map with a gradient using z-score and p-value. In terms of aesthetics, it differs from a traditional hotspot analysis because it the hotspot calculations were grouped together using a fishnet from a given shapefile and in this case it is the OSD files for the province of Ontario. To have better look, OLS and GWR calculations were used. Multivariate OLS and GWR have different representations in showing explanatory variables to help predict where future stores will be located. With both a high R-squared obtained from the OLS and GWR, we can prove that Home Depot stores are strategically placed in high populated with well-endowed individuals who can afford the tools and equipment in the store. More than likely, more stores will be built alongside the development of the suburbs of expanding cities like Toronto and Ottawa.",
+                "pics": ["/projects/da2a.svg", "/projects/da2b.svg", "/projects/da2c.svg", "/projects/da2d.svg", "/projects/da2e.svg", "/projects/da2f.svg", "/projects/da2g.svg", "/projects/da2h.svg"],
                 "languages": ["R", "ArcGIS Map"]
             },
             {
@@ -131,7 +131,7 @@
             },
             {
                 "organization": "Ontario Ministry of Economic Development, Job Creation and Trade",
-                "role": "Advisor, Advanced Technology Unit",
+                "role": "Adviser, Advanced Technology Unit",
                 "startDate": "2019-01-01",
                 "endDate": "2019-04-26",
                 "city": "Toronto",
